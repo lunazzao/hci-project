@@ -36,3 +36,98 @@
     transform: rotate(360deg);
   }
 }
+
+/* App.css */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+
+.app {
+  display: flex;
+  font-family: 'Arial', sans-serif;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden; /* Optional: in case of scroll */
+}
+
+.sidebar {
+  width: 20%;
+  background-color: #3498db; /* Blue */
+  display: flex;
+  flex-direction: column;
+}
+
+.profile, .recents {
+  color: white;
+  padding: 20px;
+}
+
+.profile {
+  background-color: #9b59b6; /* Purple */
+  margin-bottom: 10px;
+}
+
+.recents {
+  background-color: #2ecc71; /* Green */
+}
+
+.main {
+  width: 80%;
+  padding: 20px;
+  background-color: #ecf0f1; /* Light grey */
+}
+
+.big-picture {
+  background-color: #e74c3c; /* Red */
+  color: white;
+  height: 60vh;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+}
+
+.option {
+  background-color: #f1c40f; /* Yellow */
+  color: white;
+  height: 100px;
+  flex-grow: 1; /* Allows the options to fill the space */
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.option:last-child {
+  margin-right: 0;
+}
+
+@media (max-width: 768px) {
+  .app {
+    flex-direction: column;
+  }
+
+  .sidebar, .main {
+    width: 100%;
+  }
+
+  .options {
+    flex-direction: column;
+  }
+
+  .option {
+    margin-bottom: 10px;
+    margin-right: 0;
+  }
+
+  .option:last-child {
+    margin-bottom: 0;
+  }
+}
