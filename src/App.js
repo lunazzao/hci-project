@@ -5,6 +5,7 @@ import Recents from './components/recents';
 import Options from './components/options';
 import React from 'react';
 import './App.css';
+import ChatGPT from './components/OpenAI/chatGPT';
 
 function App() {
   return (
@@ -14,8 +15,9 @@ function App() {
         <Recents />
       </div>
       <div className="main">
-        <BigPicture />
+        <ChatGPT />
         <Options />
+        <BigPicture />
       </div>
     </div>
   );
