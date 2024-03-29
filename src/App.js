@@ -3,7 +3,7 @@ import React from 'react';
 import './App.css';
 import ChatGPT from './components/OpenAI/chatGPT';
 import Sidebar from './components/sidebar/sidebar';
-import SilverBotAssistant from './components/ChatBubble/silverBotComponent'
+import SilverBotAssistant from './components/chatBubble/silverBotComponent'
 
 function App() {
   return (

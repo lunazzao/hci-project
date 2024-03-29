@@ -1,6 +1,3 @@
-Jiayue(Luna) Zhao's HCI React first assignment.
-<img width="1060" alt="image" src="https://github.com/lunazzao/hci-project/assets/94508024/0606dea6-09db-43c4-8ba8-7ec2cb233b48">
-
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
