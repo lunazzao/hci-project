@@ -1,23 +1,20 @@
 // App.js
-import BigPicture from './components/bigPicture';
-import Profile from './components/profile';
-import Recents from './components/recents';
-import Options from './components/options';
 import React from 'react';
 import './App.css';
 import ChatGPT from './components/OpenAI/chatGPT';
+import Sidebar from './components/sidebar/sidebar';
+import SilverBotAssistant from './components/ChatBubble/silverBotComponent'
 
 function App() {
   return (
     <div className="app">
-      <div className="sidebar">
-        <Profile />
-        <Recents />
-      </div>
+      <Sidebar />
       <div className="main">
-        <ChatGPT />
-        <Options />
-        <BigPicture />
+         <SilverBotAssistant message="1. How old are you?" timestamp="11:45 AM" />
+         <ChatGPT />
+         {/* <Options /> */}
+        {/* <BigPicture /> */}
+       
       </div>
     </div>
   );

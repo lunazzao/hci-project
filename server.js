@@ -8,7 +8,8 @@ const bodyParser = require("body-parser");
 
 
 const openai = new OpenAI({
-  apiKey: "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",
+  //TODO: change the key here to run ChatGPT
+  apiKey: "",
 });
 
 

@@ -54,13 +54,13 @@ html, body, #root {
 
 .sidebar {
   width: 20%;
-  background-color: #3498db; /* Blue */
+  background-color: #F6D9AE;
   display: flex;
   flex-direction: column;
 }
 
 .profile, .recents {
-  color: white;
+  color: #000000;
   padding: 20px;
 }
 
@@ -70,7 +70,7 @@ html, body, #root {
 }
 
 .recents {
-  background-color: #2ecc71; /* Green */
+   /* Green */
 }
 
 .main {

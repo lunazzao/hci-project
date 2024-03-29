@@ -1,0 +1,36 @@
+/* MyComponentStyles.css */
+.container {
+    width: 811px;
+    height: 106px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 4px;
+    display: inline-flex;
+  }
+  
+  .profile {
+    width: 32px;
+    height: 32px;
+    position: relative;
+  }
+  
+  .profileImage {
+    width: 32px;
+    height: 32px;
+    border-radius: 200px;
+    border: 2px rgba(30, 30, 30, 0.10) solid;
+  }
+  
+  .statusIndicator {
+    width: 10px;
+    height: 10px;
+    left: 22.12px;
+    top: 22px;
+    position: absolute;
+    background: #34C759;
+    border-radius: 9999px;
+    border: 1.25px white solid;
+  }
+  
+  /* Add other styles here... */
+  

@@ -1,0 +1,23 @@
+[
+    {
+      "id": 1,
+      "message": "Good morning! I'm here to assist you. If you don't mind, could you tell me your gender? This helps me provide more personalized advice."
+    },
+    {
+      "id": 2,
+      "message": "Could you share your age with me? Knowing your age will help me suggest exercises that are just right for you."
+    },
+    {
+      "id": 3,
+      "message": "I'm curious about your current exercise routine. How often do you get to move and stretch? This will help me understand your activity level."
+    },
+    {
+      "id": 4,
+      "message": "Do you have any health conditions or physical restrictions? Please share only what you're comfortable with—it'll help me make sure we only do what's best for you."
+    },
+    {
+      "id": 5,
+      "message": "What are your wellness goals? I can offer support whether you're looking to improve your strength, flexibility, balance, or something else!"
+    }
+  ]
+  
