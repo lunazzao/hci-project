@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import ChatIcon from '../../logos/community.svg'; // Replace with the actual path to your icons
+import ChatIcon from '../../logos/chat.svg'; // Replace with the actual path to your icons
 import CalendarIcon from '../../logos/calendar.svg';
 import CommunityIcon from '../../logos/community.svg';
 import MenuItem from './menuItem'; 

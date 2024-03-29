@@ -10,8 +10,8 @@ function App() {
     <div className="app">
       <Sidebar />
       <div className="main">
-         <SilverBotAssistant message="1. How old are you?" timestamp="11:45 AM" />
-         <ChatGPT />
+        <ChatGPT />
+        <SilverBotAssistant message="1. How old are you?" timestamp="11:45 AM" />
          {/* <Options /> */}
         {/* <BigPicture /> */}
        
