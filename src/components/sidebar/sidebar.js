@@ -16,20 +16,14 @@ const SidebarContainer = styled.div`
   height: 100%; // Full height of the parent container
 `;
 
-
-const MenuLabel = styled.span`
-  font-size: 28px;
-  color: #000; // Text color
-`;
-
 // Add more styled components as needed...
 
-const Sidebar = () => {
+const Sidebar = ({ changeActiveComponent }) => {
   return (
     <SidebarContainer>
-      <MenuItem icon={ChatIcon} label="Chat" />
-      <MenuItem icon={CalendarIcon} label="Calendar" />
-      <MenuItem icon={CommunityIcon} label="Community" />
+      <MenuItem icon={ChatIcon} label="Search" onClick={() => changeActiveComponent('chat')} />
+      <MenuItem icon={CommunityIcon} label="About Us" onClick={() => changeActiveComponent('about')} />
+      <MenuItem icon={CalendarIcon} label="Featured" onClick={() => changeActiveComponent('featured')} />
     </SidebarContainer>
   );
 };

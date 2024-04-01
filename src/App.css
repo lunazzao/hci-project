@@ -49,14 +49,17 @@ html, body, #root {
   width: 100vw;
   height: 100vh;
   margin: 0;
-  overflow: hidden; /* Optional: in case of scroll */
+  overflow: hidden; /* Keeps the entire app from scrolling */
 }
+
 
 .sidebar {
   width: 20%;
   background-color: #F6D9AE;
   display: flex;
   flex-direction: column;
+  height: 100%; /* Ensure sidebar takes full height */
+  overflow-y: auto; /* Allows scrolling inside the sidebar if content overflows */
 }
 
 .profile, .recents {
@@ -69,14 +72,12 @@ html, body, #root {
   margin-bottom: 10px;
 }
 
-.recents {
-   /* Green */
-}
-
 .main {
   width: 80%;
   padding: 20px;
   background-color: #ecf0f1; /* Light grey */
+  overflow-y: auto; /* This allows the main content to scroll */
+  height: calc(100vh - 40px); /* Adjust based on your app's actual header/padding */
 }
 
 .big-picture {

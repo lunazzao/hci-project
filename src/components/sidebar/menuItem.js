@@ -32,9 +32,9 @@ const Label = styled.span`
   color: #333; 
 `;
 
-function MenuItem({ icon, label, active }) {
+function MenuItem({ icon, label, active, onClick }) {
   return (
-    <ItemContainer className={active ? 'active' : ''}>
+    <ItemContainer className={active ? 'active' : ''} onClick={onClick}>
       {icon && <Icon src={icon} alt={label} />}
       <Label>{label}</Label>
     </ItemContainer>
