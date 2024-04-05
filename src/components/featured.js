@@ -1,5 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import image1 from '../img/image1.png'; // Replace with actual image names
+import image2 from '../img/image2.png'; // Replace with actual image names
+import image3 from '../img/image3.png'; // Replace with actual image names
+import image4 from '../img/image4.png'; // Replace with actual image names
+import videoTitlesData from '../data/featured.json';
 
 const FeaturedContainer = styled.div`
   display: grid;
@@ -55,13 +60,22 @@ const VideoTagText = styled.div`
   word-wrap: break-word;
 `;
 
+const images = [image1, image2, image3, image4];
+
 const Featured = () => {
+  const [videoTitles, setVideoTitles] = useState([]);
+
+  useEffect(() => {
+    // Assume videoTitlesData is an array of titles
+    setVideoTitles(videoTitlesData.titles);
+  }, []);
+
   return (
     <FeaturedContainer>
-      {Array.from({ length: 4 }, (_, index) => (
+      {images.map((imageSrc, index) => (
         <VideoContainer key={index}>
-          <VideoImage src="https://via.placeholder.com/544x324" alt="Featured Video" />
-          <VideoTitle>Fun Seated Cardio Aerobic Exercise</VideoTitle>
+          <VideoImage src={imageSrc} alt={`Featured Video ${index + 1}`} />
+          <VideoTitle>{videoTitles[index]}</VideoTitle>
           <VideoTag>
             <VideoTagText>Wheelchair</VideoTagText>
           </VideoTag>

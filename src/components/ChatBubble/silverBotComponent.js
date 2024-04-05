@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import messagesData from '../../data/message.json';
+import silverBotImage from '../../img/silverBot.png';
 
 // Define a timestamp function to get the current time
 const getCurrentTimestamp = () => {
   const now = new Date();
   return now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 };
-
 
 
 const Container = styled.div`
@@ -99,7 +99,7 @@ const SilverBotComponent = () => {
       {messagesData.map((msg) => (
         <MessageContainer key={msg.id}>
           <ProfileImageContainer>
-            <img src="https://via.placeholder.com/40x40" alt="Profile" />
+          <img src={silverBotImage} alt="Profile" />
             <OnlineIndicator />
           </ProfileImageContainer>
           <TextContainer>
