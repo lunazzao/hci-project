@@ -6,12 +6,10 @@ const cors = require("cors");
 
 const bodyParser = require("body-parser");
 
-
 const openai = new OpenAI({
   //TODO: change the key here to run ChatGPT
-  apiKey: "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",
+  apiKey: process.env.OPENAI_API_KEY,
 });
-
 
 // Setup server
 
@@ -29,12 +27,12 @@ app.post("/chat", async (req, res) => {
     model: "gpt-3.5-turbo",
     max_tokens: 512,
     temperature: 0,
-    messages : [
-        {
-            "role": "user",
-            "content": prompt
-        }
-    ]
+    messages: [
+      {
+        role: "user",
+        content: prompt,
+      },
+    ],
   });
   console.log(completion.choices[0].message.content);
   res.send(completion.choices[0].message.content);
