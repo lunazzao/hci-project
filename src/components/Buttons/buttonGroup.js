@@ -1,6 +1,6 @@
 // ButtonGroup.js
 import React from 'react';
-import './buttonGroup.css'; // Ensure you have the corresponding CSS file for styling
+import './SubmitButtonGroup.css'; // Ensure you have the corresponding CSS file for styling
 
 const ButtonGroup = ({ onAction }) => {
   return (

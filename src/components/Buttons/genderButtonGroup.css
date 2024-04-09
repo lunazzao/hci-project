@@ -1,0 +1,35 @@
+.answer-button-group {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* More space than button-group to emphasize choice */
+    margin-top: 20px; /* Distinct space from the submit/skip buttons */
+  }
+  
+  .gender-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Space between icon/text */
+    padding: 15px 30px; /* Larger than submit/skip for emphasis */
+    border-radius: 30px; /* More pronounced rounded corners */
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    font-size: 18px;
+    font-weight: bold;
+    border: 3px solid transparent; /* Solid border to stand out */
+  }
+  
+  .male-option {
+    background-color: #4D9FEC; /* Blue for male */
+    color: white;
+  }
+  
+  .female-option {
+    background-color: #F48FB1; /* Pink for female */
+    color: white;
+  }
+  
+  .gender-button:hover {
+    transform: scale(1.05); /* Slight grow effect on hover */
+  }
+  

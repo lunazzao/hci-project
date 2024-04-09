@@ -8,6 +8,8 @@ import SilverBotComponent from './components/chatBubble/SilverBotComponent';
 import Featured from './components/featured';
 import Slider from './components/slider'; // Adjust path as necessary
 import ButtonGroup from './components/Buttons/buttonGroup';
+import GenderSelection from './components/Buttons/genderButtonGroup';
+import OptionsButtonGroup from './components/Buttons/optionsButtonGroup';
 
 function App() {
   // State to manage which component is shown, default is set to 'chat'
@@ -23,9 +25,6 @@ function App() {
 
   const handleButtonClick = () => {
     setCurrentMessageIndex(currentIndex => {
-      // Determine if the slider should be shown based on the next message index.
-      // For example, if you want to show the slider after the first message,
-      // you check if the currentIndex (before increment) is 0.
       const shouldShowSlider = currentIndex === 0;
       if (shouldShowSlider) {
         setShowSlider(true);
@@ -35,6 +34,11 @@ function App() {
       return currentIndex + 1;
     });
   };
+
+  const genderSelectHandler = (selectedGender) => {
+    console.log(`User selected gender: ${selectedGender}`);
+  };
+
 
   const handleDisplayNextComponent = () => {
     if (showSlider) {
@@ -47,6 +51,56 @@ function App() {
     }
   };
 
+  const handleOptionsSubmit = (selectedOptions) => {
+    console.log('Selected options:', selectedOptions);
+    // Handle the selected options (store them, move to the next question, etc.)
+  };
+
+  const renderOptionsButtonGroup = () => {
+    const optionsBasedOnQuestion = getOptionsForCurrentQuestion(currentMessageIndex);
+    console.log('current Message Index:', currentMessageIndex);
+    return (
+      <OptionsButtonGroup 
+        options={optionsBasedOnQuestion} 
+        onSubmit={handleOptionsSubmit} 
+      />
+    );
+  };
+
+  const getOptionsForCurrentQuestion = (index) => {
+    switch (index) {
+      case 2: // Index for "How often do you get to move and stretch?"
+        return [
+          { id: 'daily', text: 'Daily' },
+          { id: 'few-times-week', text: 'A Few Times a Week' },
+          { id: 'weekly', text: 'Weekly' },
+          { id: 'monthly', text: 'Monthly' },
+          { id: 'rarely', text: 'Rarely' },
+        ];
+      case 3: // Index for impairments
+        return [
+          { id: 'legs', text: 'Mobility - Legs' },
+          { id: 'arms', text: 'Mobility - Arms' },
+          { id: 'eye', text: 'Vision' },
+          { id: 'hear', text: 'Hearing' },
+          { id: 'others', text: 'Oters' },
+          
+        ];
+      case 4: // Index for "What are your wellness goals?"
+        return [
+          { id: 'strength', text: 'Improve Strength' },
+          { id: 'flexibility', text: 'Enhance Flexibility' },
+          { id: 'balance', text: 'Better Balance' },
+          { id: 'endurance', text: 'Increase Endurance' },
+          { id: 'other-wellness', text: 'Other Wellness Goals' },
+        ];
+      // Add more cases as necessary for other questions
+      default:
+        return [];
+    }
+  };
+  
+
   // Render the component based on the activeComponent state
   const renderComponent = () => {
     switch (activeComponent) {
@@ -58,8 +112,11 @@ function App() {
             currentMessageIndex={currentMessageIndex} 
             onMessageDisplayed={handleDisplayNextComponent}
           />
+          {currentMessageIndex === 0 && <GenderSelection onSelect={genderSelectHandler} />}
           {currentMessageIndex === 1 && <Slider min={60} max={90} step={1} onChange={() => {}} />}
-          {/* Move ButtonGroup rendering here if you want it directly after the Slider */}
+          {currentMessageIndex === 2 && renderOptionsButtonGroup()}
+          {currentMessageIndex === 3 && renderOptionsButtonGroup()}
+          {currentMessageIndex === 4 && renderOptionsButtonGroup()}
         </div>
       );
       case 'about':
@@ -77,8 +134,6 @@ function App() {
       <Sidebar changeActiveComponent={changeActiveComponent} />
       <div className="main">
         {renderComponent()}
-        {/* Ensure ButtonGroup is rendered outside the `renderComponent` call 
-            to always show it after the messages and optionally the slider. */}
         <ButtonGroup onAction={handleButtonClick} />
       </div>
     </div>
