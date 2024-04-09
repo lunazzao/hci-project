@@ -18,6 +18,10 @@
     {
       "id": 5,
       "message": "What are your wellness goals? I can offer support whether you're looking to improve your strength, flexibility, balance, or something else!(5/5)"
+    },
+    {
+      "id": 6,
+      "message": "We found you a video! Give us a thumbs up or downvote to tell us if you like it!"
     }
   ]
   

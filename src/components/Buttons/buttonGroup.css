@@ -13,6 +13,8 @@
     border-radius: 20px; /* Rounded corners */
     cursor: pointer;
     transition: background-color 0.3s ease;
+    font-size: 24px;
+    font-weight: 800;
   }
   
   .skip-button {
