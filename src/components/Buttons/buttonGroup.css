@@ -1,0 +1,37 @@
+/* ButtonGroup.css */
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Adjust the gap as needed */
+    margin-top: 10px; /* Space under the slider */
+  }
+  
+  .skip-button,
+  .submit-button {
+    border: none;
+    padding: 10px 20px; /* Adjust padding as needed */
+    border-radius: 20px; /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .skip-button {
+    background-color: transparent;
+    color: #FFA500; /* Orange text */
+    border: 2px solid #FFA500; /* Orange border */
+  }
+  
+  .submit-button {
+    background-color: #FFA500; /* Orange background */
+    color: white;
+  }
+  
+  .skip-button:hover {
+    background-color: #FFA500; /* Orange background on hover */
+    color: white;
+  }
+  
+  .submit-button:hover {
+    background-color: #e69500; /* Darker orange on hover */
+  }
+  
