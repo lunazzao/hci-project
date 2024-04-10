@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import image1 from '../img/image1.png'; // Replace with actual image names
-import image2 from '../img/image2.png'; // Replace with actual image names
-import image3 from '../img/image3.png'; // Replace with actual image names
-import image4 from '../img/image4.png'; // Replace with actual image names
-import videoTitlesData from '../data/featured.json';
+import videoData from '../data/featured.json'; 
+import image1 from '../img/image1.png'; 
+import image2 from '../img/image2.png';
+import image3 from '../img/image3.png';
+import image4 from '../img/image4.png';
 
 const FeaturedContainer = styled.div`
   display: grid;
@@ -15,75 +15,69 @@ const FeaturedContainer = styled.div`
 `;
 
 const VideoContainer = styled.div`
-  width: 544px;
-  height: 484px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-end;
-  gap: 31px;
+  width: 100%; // Full width of the column
+  cursor: pointer;
+`;
+
+const VideoLink = styled.a`
+  text-decoration: none;
 `;
 
 const VideoImage = styled.img`
-  width: 544px;
-  height: 324px;
+  width: 100%; // Take the full width of the container
+  display: block; // Ensure no extra space below the image
 `;
 
-const VideoTitle = styled.div`
-  width: 544px;
-  height: 74px;
+const VideoTitle = styled.h3`
   color: black;
-  font-size: 36px;
-  font-family: 'Inter', sans-serif;
+  font-size: 1.5rem; // 24px if base font-size is 16px
   font-weight: 800;
-  letter-spacing: 0.72px;
-  word-wrap: break-word;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 `;
 
 const VideoTag = styled.div`
-  width: 232px;
-  height: 56px;
+  display: inline-block;
   border-radius: 20px;
   border: 5px solid #DE9811;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
+  padding: 10px;
+  margin-right: 10px; // Space between tags
+  margin-bottom: 10px; // Space below the tag
 `;
 
-const VideoTagText = styled.div`
+const VideoTagText = styled.span`
   color: #DE9811;
-  font-size: 24px;
-  font-family: 'Inter', sans-serif;
+  font-size: 1rem; // 16px if base font-size is 16px
   font-weight: 800;
-  letter-spacing: 0.48px;
-  word-wrap: break-word;
 `;
 
 const images = [image1, image2, image3, image4];
 
 const Featured = () => {
-  const [videoTitles, setVideoTitles] = useState([]);
+  const [videos, setVideos] = useState([]);
 
   useEffect(() => {
-    // Assume videoTitlesData is an array of titles
-    setVideoTitles(videoTitlesData.titles);
+    setVideos(videoData.videos);
   }, []);
 
   return (
     <FeaturedContainer>
-      {images.map((imageSrc, index) => (
-        <VideoContainer key={index}>
-          <VideoImage src={imageSrc} alt={`Featured Video ${index + 1}`} />
-          <VideoTitle>{videoTitles[index]}</VideoTitle>
-          <VideoTag>
-            <VideoTagText>Wheelchair</VideoTagText>
-          </VideoTag>
-          <VideoTag>
-            <VideoTagText>30 Minutes</VideoTagText>
-          </VideoTag>
-        </VideoContainer>
-      ))}
+      {videos.map((video, index) => {
+        const imageSrc = images[index]; // Get the corresponding image from the array
+        return (
+          <VideoContainer key={index}>
+            <VideoLink href={video.url} target="_blank" rel="noopener noreferrer">
+              <VideoImage src={imageSrc} alt={video.title} />
+              <VideoTitle>{video.title}</VideoTitle>
+            </VideoLink>
+            {video.tags.map((tag, tagIndex) => (
+              <VideoTag key={tagIndex}>
+                <VideoTagText>{tag}</VideoTagText>
+              </VideoTag>
+            ))}
+          </VideoContainer>
+        );
+      })}
     </FeaturedContainer>
   );
 };
