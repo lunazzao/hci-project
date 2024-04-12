@@ -90,13 +90,25 @@ const Timestamp = styled.div`
   margin-left: 12px; // Add some space between the text and the timestamp
 `;
 
-const SilverBotComponent = () => {
+const SilverBotComponent = ({ currentMessageIndex, onMessageDisplayed }) => {
   // Call getCurrentTimestamp only once to avoid different timestamps on re-render
   const timestamp = getCurrentTimestamp();
+  const [lastDisplayedMessageIndex, setLastDisplayedMessageIndex] = React.useState(-1);
+
+
+  React.useEffect(() => {
+    // Check if the current message hasn't been displayed yet
+    if (currentMessageIndex !== lastDisplayedMessageIndex) {
+      onMessageDisplayed(currentMessageIndex);
+      setLastDisplayedMessageIndex(currentMessageIndex); // Update the last displayed message index
+    }
+  }, [currentMessageIndex, onMessageDisplayed, lastDisplayedMessageIndex]);
+
+
 
   return (
     <Container>
-      {messagesData.map((msg) => (
+     {messagesData.slice(0, currentMessageIndex + 1).map((msg) => (
         <MessageContainer key={msg.id}>
           <ProfileImageContainer>
           <img src={silverBotImage} alt="Profile" />

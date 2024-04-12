@@ -1,9 +1,24 @@
 {
-    "titles": [
-      "Energizing Morning Yoga Routine",
-      "Low-Impact Workout for Beginners",
-      "Full-Body Strength Training Session",
-      "Relaxing Evening Meditation"
-    ]
-  }
-  
+  "videos": [
+    {
+      "title": "Energizing Morning Yoga Routine",
+      "tags": ["Yoga", "Morning"],
+      "url": "https://www.youtube.com/watch?v=K-Ina_WW4Yc"
+    },
+    {
+      "title": "Low-Impact Workout for Beginners",
+      "tags": ["Low-Impact", "Beginners", "wheelchair"],
+      "url": "https://www.youtube.com/watch?v=H0c-4nZjIWQ"
+    },
+    {
+      "title": "Full-Body Strength Training Session",
+      "tags": ["Full-Body", "Strength"],
+      "url": "https://www.youtube.com/watch?v=tj0o8aH9vJw"
+    },
+    {
+      "title": "Relaxing Evening Meditation",
+      "tags": ["Meditation", "Evening"],
+      "url": "https://www.youtube.com/watch?v=fpr5Y3eOY2c"
+    }
+  ]
+}
