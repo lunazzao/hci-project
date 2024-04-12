@@ -9,18 +9,21 @@ const cors = require("cors");
 require("dotenv").config();
 
 const bodyParser = require("body-parser");
+
 const { unstable_renderSubtreeIntoContainer } = require("react-dom");
+
 
 const openai = new OpenAI({
   //TODO: change the key here to run ChatGPT
   apiKey: process.env.OPENAI_API_KEY,
 });
 
+
 const youtubeService = google.youtube("v3");
 
 const googleAPIKey = process.env.GOOGLE_API_KEY;
 
-// Setup server
+
 
 const app = express();
 app.use(bodyParser.json());
