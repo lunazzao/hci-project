@@ -1,5 +1,5 @@
 // App.js
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import ChatGPT from "./components/OpenAI/chatGPT";
 import Sidebar from "./components/sidebar/sidebar";
@@ -17,6 +17,20 @@ function App() {
   const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
   const [showSlider, setShowSlider] = useState(false);
   const [selectedOptions, setSelectedOptions] = useState([]);
+  const [isSidebarVisible, setSidebarVisible] = useState(window.innerWidth > 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setSidebarVisible(window.innerWidth > 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+
 
   // Function to change the active component
   const changeActiveComponent = (componentName) => {
@@ -100,6 +114,10 @@ function App() {
     }
   };
 
+  const toggleSidebar = () => {
+    setSidebarVisible(!isSidebarVisible);  // Toggle the sidebar visibility
+  };
+
   // Render the component based on the activeComponent state
   const renderComponent = () => {
     switch (activeComponent) {
@@ -138,7 +156,8 @@ function App() {
 
   return (
     <div className="app">
-      <Sidebar changeActiveComponent={changeActiveComponent} />
+      <button onClick={toggleSidebar} className="sidebar-toggle">Menu</button>
+      {isSidebarVisible && <Sidebar changeActiveComponent={changeActiveComponent} />}
       <div className="main">
         {renderComponent()}
         <ButtonGroup onAction={handleButtonClick} />

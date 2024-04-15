@@ -123,13 +123,35 @@ html, body, #root {
   margin-right: 0;
 }
 
+.sidebar-toggle {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: #f3d2c1;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 800;
+  display: none; 
+  z-index: 100; 
+}
+
 @media (max-width: 768px) {
   .app {
     flex-direction: column;
   }
 
+  .sidebar-container {
+    display: none;
+  }
+
   .sidebar, .main {
     width: 100%;
+  }
+
+  .sidebar-toggle {
+    display: block; /* Show button on small screens */
   }
 
   .options {

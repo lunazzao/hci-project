@@ -14,7 +14,7 @@ const GenderSelection = ({ onSelect }) => {
   return (
     <div className="gender-selection-container">
       <div className="gender-value-display">
-        Your Gender: {value}
+        Biological Sex: {value}
       </div>
       <div className="answer-button-group">
         <button
