@@ -1,7 +1,8 @@
 /* ButtonGroup.css */
 .button-group {
+    align-items: flex-end;
     display: flex;
-    justify-content: center;
+    justify-content: right;
     gap: 10px; /* Adjust the gap as needed */
     margin-top: 10px; /* Space under the slider */
   }

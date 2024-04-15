@@ -1,15 +1,17 @@
 /* OptionButtonGroup.css */
 
-.option-button-group {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two columns as shown in the image */
-    gap: 20px;
+  .options-button-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; 
     margin-top: 20px;
     padding: 10px;
   }
+
   
   .option-button {
     display: flex;
+    justify-content: flex-start; 
     align-items: center; /* Align checkbox and label */
     gap: 10px; /* Space between checkbox and label text */
   }

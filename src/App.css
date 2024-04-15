@@ -78,16 +78,29 @@ html, body, #root {
   background-color: #ecf0f1; /* Light grey */
   overflow-y: auto; /* This allows the main content to scroll */
   height: calc(100vh - 40px); /* Adjust based on your app's actual header/padding */
+  flex: 1;
+  overflow-y: auto;
 }
 
-.big-picture {
-  background-color: #e74c3c; /* Red */
-  color: white;
-  height: 60vh;
-  margin-bottom: 20px;
+.chat-container {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  width: 80%;
+  padding: 20px;
+}
+
+.interaction-container {
+  float: right;
+  margin-left: auto;
+  padding: 20px;
+  width: 300px; /* Adjust based on your design needs */
+  display: flex;
+  flex-direction: column;
+}
+
+.button-group {
+  align-items: flex-end;
+  margin-top: auto; /* Pushes the button group to the bottom */
 }
 
 .options {

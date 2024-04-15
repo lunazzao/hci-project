@@ -1,27 +1,26 @@
 [
-    {
+  {
       "id": 1,
-      "message": "Good morning! I'm here to assist you. If you don't mind, could you tell me your gender? This helps me provide more personalized advice.(1/5)"
-    },
-    {
+      "message": "To help me offer personalized advice, could you share your gender? It's okay if you prefer not to answer."
+  },
+  {
       "id": 2,
-      "message": "Could you share your age with me? Knowing your age will help me suggest exercises that are just right for you.(2/5)"
-    },
-    {
+      "message": "Your age helps me suggest the best exercises for you. If you're comfortable sharing, I'd love to know."
+  },
+  {
       "id": 3,
-      "message": "I'm curious about your current exercise routine. How often do you get to move and stretch? This will help me understand your activity level.(3/5)"
-    },
-    {
+      "message": "Could you tell me about your current exercise habits? Understanding how often you move and stretch helps me tailor my recommendations."
+  },
+  {
       "id": 4,
-      "message": "Do you have any health conditions or physical restrictions? Please share only what you're comfortable with—it'll help me make sure we only do what's best for you.(4/5)"
-    },
-    {
+      "message": "Do you have any health conditions or physical limitations? Please share only what you're comfortable with—this helps ensure I recommend only what's safe and beneficial for you."
+  },
+  {
       "id": 5,
-      "message": "What are your wellness goals? I can offer support whether you're looking to improve your strength, flexibility, balance, or something else!(5/5)"
-    },
-    {
+      "message": "What are your wellness goals? Whether improving strength, flexibility, or balance, I'm here to support you."
+  },
+  {
       "id": 6,
-      "message": "We found you a video! Give us a thumbs up or downvote to tell us if you like it!"
-    }
-  ]
-  
+      "message": "We found you a video! Please let us know if you like it by giving a thumbs up or downvote."
+  }
+]

@@ -1,35 +1,55 @@
+/* genderButtonGroup.css */
+.gender-selection-container {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  align-items: flex-end;
+}
+
 .answer-button-group {
-    display: flex;
-    justify-content: center;
-    gap: 20px; /* More space than button-group to emphasize choice */
-    margin-top: 20px; /* Distinct space from the submit/skip buttons */
-  }
-  
-  .gender-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px; /* Space between icon/text */
-    padding: 15px 30px; /* Larger than submit/skip for emphasis */
-    border-radius: 30px; /* More pronounced rounded corners */
-    cursor: pointer;
-    transition: transform 0.3s ease;
-    font-size: 18px;
-    font-weight: bold;
-    border: 3px solid transparent; /* Solid border to stand out */
-  }
-  
-  .male-option {
-    background-color: #4D9FEC; /* Blue for male */
-    color: white;
-  }
-  
-  .female-option {
-    background-color: #F48FB1; /* Pink for female */
-    color: white;
-  }
-  
-  .gender-button:hover {
-    transform: scale(1.05); /* Slight grow effect on hover */
-  }
-  
+  display: flex;
+  justify-content: center; /* Center buttons horizontally */
+  gap: 20px; /* Space between buttons */
+  margin-top: 20px; /* Space between display and buttons */
+}
+
+.gender-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 30px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  font-size: 32px;
+  font-weight: bold;
+  border: 3px solid transparent;
+}
+
+.male-option {
+  background-color: #4D9FEC;
+  color: white;
+}
+
+.female-option {
+  background-color: #F48FB1;
+  color: white;
+}
+
+.gender-button:hover {
+  transform: scale(1.05);
+}
+
+.male-option:active {
+  background-color: #3c7dcf;
+}
+
+.female-option:active {
+  background-color: #e57399;
+}
+
+.gender-value-display {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 10px; /* Ensure space between text and buttons */
+}

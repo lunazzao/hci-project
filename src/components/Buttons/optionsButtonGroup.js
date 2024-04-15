@@ -1,20 +1,26 @@
+// OptionsButtonGroup.js
 import React, { useState } from 'react';
-import './optionsButtonGroup.css'; // Make sure this path matches the location of your CSS file
+import './optionsButtonGroup.css';
 
-const OptionsButtonGroup = ({ options, onSubmit }) => {
+const OptionsButtonGroup = ({ options, onSelectionChange }) => {
   const [selectedOptions, setSelectedOptions] = useState([]);
 
   const handleOptionChange = (optionId) => {
-    setSelectedOptions((prevSelected) =>
-      prevSelected.includes(optionId)
-        ? prevSelected.filter((id) => id !== optionId)
-        : [...prevSelected, optionId]
-    );
+    setSelectedOptions(prevSelected => {
+      // Calculate the new state first
+      const newSelected = prevSelected.includes(optionId)
+        ? prevSelected.filter(id => id !== optionId)
+        : [...prevSelected, optionId];
+      
+      // Call the callback with the new state
+      onSelectionChange(newSelected);
+      return newSelected; // Return the new state to update
+    });
   };
 
   return (
     <div className="options-button-group">
-      {options.map((option) => (
+      {options.map(option => (
         <div key={option.id} className="option-button">
           <input
             type="checkbox"

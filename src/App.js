@@ -4,10 +4,10 @@ import "./App.css";
 import ChatGPT from "./components/OpenAI/chatGPT";
 import Sidebar from "./components/sidebar/sidebar";
 import AboutUs from "./components/aboutUs";
-import SilverBotComponent from "./components/ChatBubble/silverBotComponent";
+import SilverBotComponent from "./components/chatBubble/chatBubble";
 import Featured from "./components/featured";
 import Slider from "./components/slider"; // Adjust path as necessary
-import ButtonGroup from "./components/Buttons/buttonGroup";
+import ButtonGroup from "./components/Buttons/submitButtonGroup";
 import GenderSelection from "./components/Buttons/genderButtonGroup";
 import OptionsButtonGroup from "./components/Buttons/optionsButtonGroup";
 
@@ -16,6 +16,7 @@ function App() {
   const [activeComponent, setActiveComponent] = useState("chat");
   const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
   const [showSlider, setShowSlider] = useState(false);
+  const [selectedOptions, setSelectedOptions] = useState([]);
 
   // Function to change the active component
   const changeActiveComponent = (componentName) => {
@@ -52,6 +53,7 @@ function App() {
   const handleOptionsSubmit = (selectedOptions) => {
     console.log("Selected options:", selectedOptions);
     // Handle the selected options (store them, move to the next question, etc.)
+    setSelectedOptions(selectedOptions);
   };
 
   const renderOptionsButtonGroup = () => {
@@ -61,7 +63,7 @@ function App() {
     return (
       <OptionsButtonGroup
         options={optionsBasedOnQuestion}
-        onSubmit={handleOptionsSubmit}
+        onSelectionChange={handleOptionsSubmit}
       />
     );
   };
