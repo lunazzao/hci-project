@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import './Slider.css'; // Make sure to create this file and path is correct
+import React, { useState } from "react";
+import "./Slider.css"; // Make sure to create this file and path is correct
 
 // Slider component
 // Slider component
@@ -32,11 +32,9 @@ const Slider = ({ min, max, step, onChange }) => {
   );
 };
 
-
 // Example parent component that uses the Slider
 const SliderParent = () => {
   const handleSliderValueChange = (sliderValue) => {
-    console.log('Selected Value:', sliderValue);
     // Now you can do something with the selected value in the parent component
   };
 

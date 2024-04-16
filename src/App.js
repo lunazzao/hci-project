@@ -14,7 +14,7 @@ import OptionsButtonGroup from "./components/Buttons/optionsButtonGroup";
 function App() {
   // State to manage which component is shown, default is set to 'chat'
   const [activeComponent, setActiveComponent] = useState("chat");
-  const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
+  const [currentMessageIndex, setCurrentMessageIndex] = useState(1);
   const [showSlider, setShowSlider] = useState(false);
   const [selectedOptions, setSelectedOptions] = useState([]);
   const [selectedSex, setSelectedSex] = useState("");
@@ -23,6 +23,7 @@ function App() {
   const [title, setTitle] = useState("");
   const [embed, setEmbed] = useState("");
   const [mobileEmbed, setMobileEmbed] = useState("");
+  const [showButton, setShowButton] = useState(true);
 
   const [isSidebarVisible, setSidebarVisible] = useState(
     window.innerWidth > 768
@@ -58,24 +59,26 @@ function App() {
         ? `My wellness goals are to ${healthInfo.current[4]}. `
         : ""
     );
-    console.log(video);
     setTitle(video.title);
     setEmbed(video.embedHtml);
     setMobileEmbed(video.mobileEmbedHtml);
+    setCurrentMessageIndex(6);
   };
 
   const handleButtonClick = (buttonClicked) => {
     if (buttonClicked === "submit") {
-      if (currentMessageIndex === 0) {
+      if (currentMessageIndex === 1) {
         healthInfo.current[0] = selectedSex;
-      } else if (currentMessageIndex === 1) {
+      } else if (currentMessageIndex === 2) {
         healthInfo.current[1] = selectedAge;
       } else {
-        healthInfo.current[currentMessageIndex] = selectedOptions.join(", ");
+        healthInfo.current[currentMessageIndex - 1] =
+          selectedOptions.join(", ");
       }
     }
-    if (currentMessageIndex >= 4) {
+    if (currentMessageIndex >= 5) {
       getAndDisplayVideo();
+      setShowButton(false);
     }
     setCurrentMessageIndex((currentIndex) => {
       const shouldShowSlider = currentIndex === 0;
@@ -107,8 +110,9 @@ function App() {
   };
 
   const renderOptionsButtonGroup = () => {
-    const optionsBasedOnQuestion =
-      getOptionsForCurrentQuestion(currentMessageIndex);
+    const optionsBasedOnQuestion = getOptionsForCurrentQuestion(
+      currentMessageIndex - 1
+    );
     return (
       <OptionsButtonGroup
         options={optionsBasedOnQuestion}
@@ -163,10 +167,10 @@ function App() {
               currentMessageIndex={currentMessageIndex}
               onMessageDisplayed={handleDisplayNextComponent}
             />
-            {currentMessageIndex === 0 && (
+            {currentMessageIndex === 1 && (
               <SexSelection onSelect={sexSelectHandler} />
             )}
-            {currentMessageIndex === 1 && (
+            {currentMessageIndex === 2 && (
               <Slider
                 min={60}
                 max={90}
@@ -177,9 +181,9 @@ function App() {
                 }}
               />
             )}
-            {currentMessageIndex === 2 && renderOptionsButtonGroup()}
             {currentMessageIndex === 3 && renderOptionsButtonGroup()}
             {currentMessageIndex === 4 && renderOptionsButtonGroup()}
+            {currentMessageIndex === 5 && renderOptionsButtonGroup()}
           </div>
         );
       case "about":
@@ -205,13 +209,33 @@ function App() {
         <Sidebar changeActiveComponent={changeActiveComponent} />
       )}
       <div className="main">
+        <div className="d-block d-lg-none" style={{ height: "50px" }}></div>
+        <div
+          className="d-block d-lg-none"
+          style={{
+            height: "70px",
+            width: "100vw",
+            position: "absolute",
+            top: 0,
+            left: 0,
+            backgroundColor: "#ecf0f1",
+            zIndex: 10,
+          }}
+        ></div>
+        <h1 className="pb-3">
+          <b>Silver Exercise Companion</b>
+        </h1>
         {renderComponent()}
-        <ButtonGroup onAction={handleButtonClick} />
-        {title.length > 0 ? (
+        {activeComponent === "chat" && showButton ? (
+          <ButtonGroup onAction={handleButtonClick} />
+        ) : (
+          <></>
+        )}
+        {title.length > 0 && activeComponent === "chat" ? (
           <div>
             <div
-              className="card py-2 m-3 video-card d-none d-lg-block"
-              style={{ width: "800px", height: "540px" }}
+              className="card py-2 m-3 video-card d-none d-lg-block mx-0 px-0"
+              style={{ width: "801px", backgroundColor: "#FFF8E7" }}
             >
               <div
                 className="card-img-top"
@@ -223,7 +247,7 @@ function App() {
             </div>
             <div
               className="card py-2 m-3 video-card d-block d-lg-none"
-              style={{ width: "350px", height: "285px" }}
+              style={{ width: "351px", backgroundColor: "#FFF8E7" }}
             >
               <div
                 className="card-img-top"

@@ -1,26 +1,30 @@
 [
   {
-      "id": 1,
-      "message": "To help me offer personalized advice, may I ask what is your biological sex? It's okay if you prefer not to answer."
+    "id": 1,
+    "message": "Hi, I'm SilverBot! I am an AI that will be helping you find an exercise tutorial personalized to you."
   },
   {
-      "id": 2,
-      "message": "Your age helps me suggest the best exercises for you. If you're comfortable sharing, I'd love to know."
+    "id": 2,
+    "message": "To help me offer personalized advice, may I ask what is your biological sex? It's okay if you prefer not to answer."
   },
   {
-      "id": 3,
-      "message": "Could you tell me about your current exercise habits? Understanding how often you move and stretch helps me tailor my recommendations."
+    "id": 3,
+    "message": "Your age helps me suggest the best exercises for you. If you're comfortable sharing, I'd love to know."
   },
   {
-      "id": 4,
-      "message": "Do you have any health conditions or physical limitations? Please share only what you're comfortable with—this helps ensure I recommend only what's safe and beneficial for you."
+    "id": 4,
+    "message": "Could you tell me about your current exercise habits? Understanding how often you move and stretch helps me tailor my recommendations."
   },
   {
-      "id": 5,
-      "message": "What are your wellness goals? Whether improving strength, flexibility, or balance, I'm here to support you."
+    "id": 5,
+    "message": "Do you have any health conditions or physical limitations? Please share only what you're comfortable with—this helps ensure I recommend only what's safe and beneficial for you."
   },
   {
-      "id": 6,
-      "message": "We found you a video! Please let us know if you like it by giving a thumbs up or downvote."
+    "id": 6,
+    "message": "What are your wellness goals? Whether improving strength, flexibility, or balance, I'm here to support you."
+  },
+  {
+    "id": 7,
+    "message": "Thank you for sharing! I'm looking for a video personalized to you now."
   }
 ]
