@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import messagesData from '../../data/message.json';
-import silverBotImage from '../../img/silverBot.png';
+import silverBotImage from '../../img/silverBot2.png';
 
 const getCurrentTimestamp = () => {
   const now = new Date();
