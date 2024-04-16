@@ -12,18 +12,14 @@ const bodyParser = require("body-parser");
 
 const { unstable_renderSubtreeIntoContainer } = require("react-dom");
 
-
 const openai = new OpenAI({
   //TODO: change the key here to run ChatGPT
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-
 const youtubeService = google.youtube("v3");
 
 const googleAPIKey = process.env.GOOGLE_API_KEY;
-
-
 
 const app = express();
 app.use(bodyParser.json());
@@ -32,9 +28,10 @@ app.use(cors());
 // endpoint for ChatGPT
 
 app.post("/chat", async (req, res) => {
-  const { prompt } = req.body;
-  console.log("i said:" + req.body);
+  const { prompt } = req.query;
+  console.log("i said:" + prompt);
 
+  /*
   const completion = await openai.chat.completions.create({
     model: "gpt-3.5-turbo",
     max_tokens: 512,
@@ -43,7 +40,7 @@ app.post("/chat", async (req, res) => {
       {
         role: "system",
         content:
-          "You are helping senior citizens find exercise tutorials on YouTube that are appropriate for their physical health. When given a prompt you will take in the health data and send back a list of 5 YouTube links to appropriate exercise tutorials. The tutorials should be designed for older adults. You will only respond with the list of links in this format: `[link1, link2, link3, link4, link5]`",
+          "You are helping senior citizens find exercise tutorials on YouTube that are appropriate for their physical health. When given a prompt you will take in the health data and send back a search query to find an approprite exercise tutorial on YouTube. You will not include anything in your response other than the search query.",
       },
       {
         role: "user",
@@ -53,26 +50,40 @@ app.post("/chat", async (req, res) => {
   });
   console.log(completion.choices[0].message.content);
   res.send(completion.choices[0].message.content);
+  */
+  res.send("eep");
 });
 
-app.get("/video", async (req, res) => {
-  const { videoIDs } = req.query;
-  console.log(videoIDs);
+app.post("/video", async (req, res) => {
+  const { prompt } = req.body;
+  const completion = await openai.chat.completions.create({
+    model: "gpt-3.5-turbo",
+    max_tokens: 512,
+    temperature: 0,
+    messages: [
+      {
+        role: "system",
+        content:
+          "You are helping senior citizens find exercise tutorials on YouTube that are appropriate for their physical health. When given a prompt you will take in the health data and send back a search query to find an approprite exercise tutorial on YouTube. You will not include anything in your response other than the search query.",
+      },
+      {
+        role: "user",
+        content: prompt,
+      },
+    ],
+  });
 
-  if (
-    videoIDs === null ||
-    videoIDs === undefined ||
-    !(videoIDs instanceof Array) ||
-    videoIDs.length === 0
-  ) {
-    res.status(400).send();
-  }
+  const searchQuery = completion.choices[0].message.content;
+  console.log(searchQuery);
 
-  youtubeService.videos.list(
+  youtubeService.search.list(
     {
       auth: googleAPIKey,
-      id: [videoIDs.join(",")],
-      part: "snippet,player",
+      part: "snippet",
+      q: searchQuery,
+      maxResults: 1,
+      safeSearch: "moderate",
+      type: "video",
     },
     function (err, response) {
       if (err) {
@@ -80,21 +91,20 @@ app.get("/video", async (req, res) => {
         res.status(404).send();
         return;
       }
-      var videos = response.data.items;
-      if (videos.length === 0) {
+      var video = response.data.items;
+      if (video.length === 0) {
         console.log("No video found.");
         res.status(404).send();
         return;
       } else {
-        title = videos[0].snippet.title;
-        thumbnail = videos[0].snippet.thumbnails.standard;
-        embedHtml = videos[0].player.embedHtml;
-        thumbnail,
-          res.send({
-            title,
-            thumbnail,
-            embedHtml,
-          });
+        title = video[0].snippet.title;
+        embedHtml = `<iframe width="800px" height="450" src="https://www.youtube-nocookie.com/embed/${video[0].id.videoId}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
+        mobileEmbedHtml = `<iframe width="350px" height="195px" src="https://www.youtube-nocookie.com/embed/${video[0].id.videoId}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
+        res.send({
+          title,
+          embedHtml,
+          mobileEmbedHtml,
+        });
       }
     }
   );

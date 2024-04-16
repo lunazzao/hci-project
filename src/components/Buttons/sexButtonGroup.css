@@ -1,5 +1,5 @@
-/* genderButtonGroup.css */
-.gender-selection-container {
+/* sexButtonGroup.css */
+.sex-selection-container {
   display: flex;
   flex-direction: column; /* Stack elements vertically */
   align-items: flex-end;
@@ -12,7 +12,7 @@
   margin-top: 20px; /* Space between display and buttons */
 }
 
-.gender-button {
+.sex-button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -27,16 +27,16 @@
 }
 
 .male-option {
-  background-color: #4D9FEC;
+  background-color: #4d9fec;
   color: white;
 }
 
 .female-option {
-  background-color: #F48FB1;
+  background-color: #f48fb1;
   color: white;
 }
 
-.gender-button:hover {
+.sex-button:hover {
   transform: scale(1.05);
 }
 
@@ -48,7 +48,7 @@
   background-color: #e57399;
 }
 
-.gender-value-display {
+.sex-value-display {
   font-size: 28px;
   font-weight: 800;
   margin-bottom: 10px; /* Ensure space between text and buttons */
