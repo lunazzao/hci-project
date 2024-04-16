@@ -210,18 +210,22 @@ function App() {
       )}
       <div className="main">
         <div className="d-block d-lg-none" style={{ height: "50px" }}></div>
-        <div
-          className="d-block d-lg-none"
-          style={{
-            height: "70px",
-            width: "100vw",
-            position: "absolute",
-            top: 0,
-            left: 0,
-            backgroundColor: "#ecf0f1",
-            zIndex: 10,
-          }}
-        ></div>
+        {!isSidebarVisible ? (
+          <div
+            className="d-block d-lg-none"
+            style={{
+              height: "70px",
+              width: "100vw",
+              position: "absolute",
+              top: 0,
+              left: 0,
+              backgroundColor: "#ecf0f1",
+              zIndex: 10,
+            }}
+          ></div>
+        ) : (
+          <></>
+        )}
         <h1 className="pb-3">
           <b>Silver Exercise Companion</b>
         </h1>
