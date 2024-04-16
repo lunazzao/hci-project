@@ -94,8 +94,15 @@ app.post("/video", async (req, res) => {
       var video = response.data.items;
       if (video.length === 0) {
         console.log("No video found.");
-        res.status(404).send();
-        return;
+        // Send back a known good video
+        title = "15-minute Workout for Older Adults";
+        embedHtml = `<iframe width="800px" height="450" src="https://www.youtube-nocookie.com/embed/Ev6yE55kYGw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
+        mobileEmbedHtml = `<iframe width="350px" height="195px" src="https://www.youtube-nocookie.com/embed/Ev6yE55kYGw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
+        res.send({
+          title,
+          embedHtml,
+          mobileEmbedHtml,
+        });
       } else {
         title = video[0].snippet.title;
         embedHtml = `<iframe width="800px" height="450" src="https://www.youtube-nocookie.com/embed/${video[0].id.videoId}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
