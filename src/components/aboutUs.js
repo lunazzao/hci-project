@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const AboutContainer = styled.div`
   display: grid;
@@ -8,7 +8,7 @@ const AboutContainer = styled.div`
   padding: 20px;
   background-color: #f3f4f6; // matching the screenshot background
   color: #333;
-  font-family: 'Inter', sans-serif; // assuming Inter is the font you're using throughout
+  font-family: "Inter", sans-serif; // assuming Inter is the font you're using throughout
 `;
 
 const GridItem = styled.div`
@@ -22,7 +22,7 @@ const Title = styled.div`
   left: 0;
   top: 0;
   position: absolute;
-  color: #FEC75B; // orange color
+  color: #fec75b; // orange color
   font-size: 32px;
   font-weight: 800;
   letter-spacing: 1.28px;
@@ -35,7 +35,7 @@ const Content = styled.div`
   left: 7px;
   top: 53px;
   position: absolute;
-  color: #2C2C2E; // dark color
+  color: #2c2c2e; // dark color
   font-size: 24px;
   font-weight: 800;
   letter-spacing: 0.72px;
@@ -43,22 +43,15 @@ const Content = styled.div`
 `;
 
 const TeamMemberProfile = styled.div`
-  width: 140px; // Adjust to the size of the team member images
-  height: 140px; // Adjust to the size of the team member images
-  background-color: #ccc; // Placeholder for an image
   position: relative; // To position the name
 `;
 
 const TeamMemberName = styled.div`
-  position: absolute;
-  width: 100%;
-  bottom: -30px; // Adjust as necessary to position below the image
   text-align: center;
   color: #333;
   font-size: 18px;
   font-weight: 800;
 `;
-
 
 const TeamGridItem = styled(GridItem)`
   display: flex;
@@ -71,26 +64,44 @@ const AboutUs = () => {
     <AboutContainer>
       <GridItem>
         <Title>Our Story</Title>
-        <Content>Our journey began with a simple belief: aging should be a dignified and graceful process. We are a team of students dedicated to using technology to enhancing the daily lives of seniors.</Content>
+        <Content>
+          Our journey began with a simple belief: aging should be a dignified
+          and graceful process. We are a team of students dedicated to using
+          technology to enhancing the daily lives of seniors.
+        </Content>
       </GridItem>
       <GridItem>
         <Title>Why We Care</Title>
-        <Content>Our team shares a personal connection to the cause. Whether it's supporting a parent through retirement or volunteering at community centers, we've seen the difference thoughtful support can make.</Content>
+        <Content>
+          Our team shares a personal connection to the cause. Whether it's
+          supporting a parent through retirement or volunteering at community
+          centers, we've seen the difference thoughtful support can make.
+        </Content>
       </GridItem>
       <GridItem>
         <Title>Our Mission</Title>
-        <Content>Our mission is to empower seniors to lead healthier, happier lives through technology. We strive to bridge the gap between the fast-paced world of tech and the often overlooked needs of the older generation.</Content>
+        <Content>
+          Our mission is to empower seniors to lead healthier, happier lives
+          through technology. We strive to bridge the gap between the fast-paced
+          world of tech and the often overlooked needs of the older generation.
+        </Content>
       </GridItem>
       <TeamGridItem>
-      <Title>Meet the Team</Title>
+        <Title>Meet the Team</Title>
         {/* Team members will go here */}
         <TeamMemberProfile>
-          <img src="path_to_lunas_image" alt="Luna" />
+          {/*<img src="../img/lunaPic.jpeg" alt="Luna" />*/}
           <TeamMemberName>Luna</TeamMemberName>
+          Graphic Design
+          <br />
+          Programming
         </TeamMemberProfile>
         <TeamMemberProfile>
-          <img src="path_to_olivers_image" alt="Oliver" />
+          {/*<img src="../img/oliverPic.jpeg" alt="Oliver" />*/}
           <TeamMemberName>Oliver</TeamMemberName>
+          Programming
+          <br />
+          API Integration
         </TeamMemberProfile>
         {/* Add more team members as needed */}
       </TeamGridItem>
